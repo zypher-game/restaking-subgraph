@@ -1,0 +1,34 @@
+specVersion: 0.0.5
+description: Subgraph for Zypher Restaking
+repository: https://github.com/zypher-game/restaking-subgraph
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: ZypherRestaking
+    network: linea
+    source:
+      abi: Restaking
+      address: "0x1818BC25102B0b0919c84eE0A765E110A211a774"
+      startBlock: 1419373
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      file: ./src/mappings.ts
+      entities:
+        - Asset
+        - Deposit
+        - Token
+        - User
+        - Withdraw
+      abis:
+        - name: Restaking
+          file: ./abis/Restaking.json
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Deposit(indexed address,indexed address,uint256,uint256)
+          handler: handleDeposit
+        - event: Withdraw(indexed address,indexed address,uint256)
+          handler: handleWithdraw

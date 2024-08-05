@@ -1,0 +1,41 @@
+type Deposit @entity {
+  id: Bytes! # txHash
+
+  user: User!
+  token: Token!
+  amount: BigInt!
+
+  timestamp: String!
+}
+
+type Withdraw @entity {
+  id: Bytes! # txHash
+
+  user: User!
+  token: Token!
+  amount: BigInt!
+
+  timestamp: String!
+}
+
+type User @entity {
+  id: Bytes! # Address
+
+  assets: [Asset!]! @derivedFrom(field: "owner")
+}
+
+type Asset @entity {
+  id: ID! # `${user}:${token}`
+
+  owner: User!
+  token: Token!
+  balance: BigInt!
+}
+
+type Token @entity {
+  id: Bytes! # address
+
+  name: String!
+  symbol: String!
+  decimals: Int!
+}
