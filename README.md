@@ -8,3 +8,7 @@
 > 但很不幸的，目前我們只剩 Linea Sepolia 版本的 Restaking，而 Goldsky 上的 `linea-testnet` 則是指向 Linea Goerli。
 >
 > 然後.... (省略三千字) .... 因此我只能自己寫一個版本的 subgraph deploy 到我們自己 host 的 graph-node 上
+
+- Linea Sepolia:
+  - [Live editor](https://linea-sepolia-graph.zypher.game/subgraphs/name/zypher/restaking/graphql)
+  - [API endpoint](https://linea-sepolia-graph.zypher.game:8000/subgraphs/name/zypher/restaking)
