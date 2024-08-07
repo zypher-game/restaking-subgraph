@@ -1,0 +1,26 @@
+specVersion: 0.0.5
+description: Subgraph for Zypher Restaking
+repository: https://github.com/zypher-game/restaking-subgraph
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: ChainlinkDataFeed
+    network: linea
+    source:
+      abi: DataFeed
+      address: "0x3c6cd9cc7c7a4c2cf5a82734cd249d7d593354da"
+      startBlock: 602781
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      file: ./src/mappings.ts
+      entities:
+        - DataFeed
+      abis:
+        - name: DataFeed
+          file: ./abis/ChainlinkDataFeed.json
+      eventHandlers:
+        - event: AnswerUpdated(indexed int256,indexed uint256,uint256)
+          handler: handleAnswerUpdated

@@ -1,0 +1,8 @@
+{
+  "linea": {
+    "ChainlinkDataFeed": {
+      "address": "0x3c6cd9cc7c7a4c2cf5a82734cd249d7d593354da",
+      "startBlock": 602781
+    }
+  }
+}

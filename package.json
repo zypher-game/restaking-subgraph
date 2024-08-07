@@ -2,6 +2,10 @@
   "name": "restaking-subgraph",
   "license": "MIT",
   "scripts": {
+    "feed:gen": "graph codegen subgraph.datafeed.yaml",
+    "feed:build": "graph build subgraph.datafeed.yaml",
+    "feed:create": "graph create restaking/dev --node https://linea-mainnet-graph.zypher.game/jsonrpc",
+    "feed:deploy": "graph deploy restaking/dev subgraph.datafeed.yaml --node https://linea-mainnet-graph.zypher.game/jsonrpc --network linea --network-file=networks.mainnet.json --ipfs https://linea-mainnet-graph.zypher.game",
     "gen": "graph codegen",
     "build": "graph build",
     "__deploy_command__": "yarn deploy:linea:testnet -l v0.0.1",
