@@ -9,8 +9,8 @@ dataSources:
     network: linea
     source:
       abi: DataFeed
-      address: "0x3c6cd9cc7c7a4c2cf5a82734cd249d7d593354da"
-      startBlock: 602781
+      address: "0x0635163285C6ef5692167F18b799FB339DF064f8"
+      startBlock: 602772
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
