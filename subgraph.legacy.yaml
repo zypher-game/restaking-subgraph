@@ -1,3 +1,4 @@
+# 舊版 manifest 檔案，預計供沒有 DataFeed 的 testnet 使用
 specVersion: 0.0.5
 description: Subgraph for Zypher Restaking
 repository: https://github.com/zypher-game/restaking-subgraph
@@ -9,8 +10,8 @@ dataSources:
     network: linea
     source:
       abi: Restaking
-      address: "0x2fc64783f9b28109E0ae62e1e5f5f529696D2281"
-      startBlock: 8015420
+      address: "0x1818BC25102B0b0919c84eE0A765E110A211a774"
+      startBlock: 1419373
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -32,23 +33,3 @@ dataSources:
           handler: handleDeposit
         - event: Withdraw(indexed address,indexed address,uint256)
           handler: handleWithdraw
-  - kind: ethereum
-    name: ChainlinkDataFeed
-    network: linea
-    source:
-      abi: DataFeed
-      address: "0x0635163285C6ef5692167F18b799FB339DF064f8"
-      startBlock: 602772
-    mapping:
-      kind: ethereum/events
-      apiVersion: 0.0.7
-      language: wasm/assemblyscript
-      file: ./src/mappings.ts
-      entities:
-        - DataFeed
-      abis:
-        - name: DataFeed
-          file: ./abis/ChainlinkDataFeed.json
-      eventHandlers:
-        - event: AnswerUpdated(indexed int256,indexed uint256,uint256)
-          handler: handleAnswerUpdated
