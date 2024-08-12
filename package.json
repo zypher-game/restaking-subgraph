@@ -2,8 +2,14 @@
   "name": "restaking-subgraph",
   "license": "MIT",
   "scripts": {
-    "gen": "graph codegen",
+    "gen": "graph codegen subgraph.yaml",
     "build": "graph build",
+    "create:linea:mainnet": "graph create restaking/public --node https://linea-mainnet-graph.zypher.game/jsonrpc",
+    "deploy:linea:mainnet": "graph deploy restaking/public subgraph.yaml --node https://linea-mainnet-graph.zypher.game/jsonrpc --network linea --network-file=networks.mainnet.json --ipfs https://linea-mainnet-graph.zypher.game",
+    "gen:legacy": "graph codegen subgraph.legacy.yaml",
+    "build:legacy": "graph build subgraph.legacy.yaml",
+    "create:legacy": "graph create restaking/legacy --node https://linea-mainnet-graph.zypher.game/jsonrpc",
+    "deploy:legacy": "graph deploy restaking/legacy subgraph.legacy.yaml --node https://linea-mainnet-graph.zypher.game/jsonrpc --network linea --network-file=networks.mainnet.json --ipfs https://linea-mainnet-graph.zypher.game",
     "__deploy_command__": "yarn deploy:linea:testnet -l v0.0.1",
     "create:linea:testnet": "graph create zypher/restaking --node https://linea-sepolia-graph.zypher.game/jsonrpc",
     "deploy:linea:testnet": "graph deploy zypher/restaking --node https://linea-sepolia-graph.zypher.game/jsonrpc --ipfs https://linea-sepolia-graph.zypher.game --network-file networks.testnet.json --network linea"

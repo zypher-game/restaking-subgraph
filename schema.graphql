@@ -39,3 +39,13 @@ type Token @entity {
   symbol: String!
   decimals: Int!
 }
+
+type DataFeed @entity {
+  id: Bytes! # address
+
+  decimals: Int!
+  description: String!
+  value: BigInt!
+
+  updatedAt: BigInt!
+}
