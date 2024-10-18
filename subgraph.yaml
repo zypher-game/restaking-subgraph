@@ -9,8 +9,8 @@ dataSources:
     network: linea
     source:
       abi: Restaking
-      address: "0x2fc64783f9b28109E0ae62e1e5f5f529696D2281"
-      startBlock: 8015420
+      address: "0xb78e82CF9457C3Cf6b275E8387038764baDa6F73"
+      startBlock: 10722237
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7

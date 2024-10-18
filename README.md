@@ -56,13 +56,19 @@ $ yarn deploy:linea:mainnet -l v0.0.1
 Goldsky deploy script:
 
 ```bash
-$ goldsky subgraph deploy zypher-restaking/linea-mainnet                                                                                                                           [16:30:59]
+# 移除當前運行的版本
+$ goldsky subgraph delete zypher-restaking/linea-mainnet
+# │
+# ◇  Please enter the subgraph name and version to confirm you want to delete it
+# │  zypher-restaking/linea-mainnet
+# ✔ Removed subgraph
 
+# 重新 deploy 一版，指定開始 block 加速 indexing
+$ goldsky subgraph deploy zypher-restaking/linea-mainnet --start-block 10722237
 # Deploying Subgraph:
 # ✔ Validating build path
 # ✔ Packaging deployment bundle from /Users/chris/repo/zypher-game/restaking-subgraph/build
 # ✔ Deploying zypher-restaking/linea-mainnet to Goldsky
 #
 # Deployed subgraph API: https://api.goldsky.com/api/public/project_clzbcvp9w9t5k011f7hbvc17s/subgraphs/zypher-restaking/linea-mainnet/gn
-
 ```
