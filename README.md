@@ -55,6 +55,10 @@ $ yarn deploy:linea:mainnet -l v0.0.1
 
 Goldsky deploy script:
 
+> [!WARNING]
+> Goldsky subgraph 可以指定開始追蹤全部數據的 block，原本訂在服務開始的 10722237，
+> 但這樣會造成反查時，在那個時間點還沒有報價資料，因此提前至 10700000
+
 ```bash
 # 移除當前運行的版本
 $ goldsky subgraph delete zypher-restaking/linea-mainnet
@@ -64,7 +68,7 @@ $ goldsky subgraph delete zypher-restaking/linea-mainnet
 # ✔ Removed subgraph
 
 # 重新 deploy 一版，指定開始 block 加速 indexing
-$ goldsky subgraph deploy zypher-restaking/linea-mainnet --start-block 10722237
+$ goldsky subgraph deploy zypher-restaking/linea-mainnet --start-block 10700000
 # Deploying Subgraph:
 # ✔ Validating build path
 # ✔ Packaging deployment bundle from /Users/chris/repo/zypher-game/restaking-subgraph/build
